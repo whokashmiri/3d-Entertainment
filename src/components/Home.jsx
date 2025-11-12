@@ -1,0 +1,13 @@
+import Navbar from "./Home/Navbar"
+
+import React from 'react'
+
+const Home = () => {
+  return (
+    <>
+    <Navbar/>
+    </>
+  )
+}
+
+export default Home
