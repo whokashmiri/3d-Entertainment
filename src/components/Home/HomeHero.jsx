@@ -1,135 +1,98 @@
-import imgone from "../../assets/imageone.png";
-import imagetwo from "../../assets/imagetwo.png";
-import imagethree from "../../assets/imagethree.png";
-import imagefour from "../../assets/imagefour.png";
-import imagefive from "../../assets/imagefive.png";
-import imagesix from  "../../assets/imagesix.png";
-import { useState, useEffect, useRef } from "react";
+import React, { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function HomeHero() {
-
-  const backgrounds = [
-    `url(${imagetwo})`,
-    `url(${imgone})`,
-    `url(${imagethree})`,
-    `url(${imagefour})`,
-    `url(${imagefive})`,
-    `url(${imagesix})`,
+  const videos = [
+   "https://www.pexels.com/download/video/30829214/",
+   "https://www.pexels.com/download/video/8089234/",
+   "https://www.pexels.com/download/video/4488715/",
   ];
 
-  const [currentBg, setCurrentBg] = useState(0);
-  const [visible, setVisible] = useState(false);
-  const [typedText, setTypedText] = useState("");
+  const [currentVideo, setCurrentVideo] = useState(0);
 
-  const fullSubtitle =
-    "wWe design, fabricate, and deliver extraordinary themed entertainment environments across the Middle East — turning imagination into reality.";
+  // Preload videos for smooth transition
+  useEffect(() => {
+    videos.forEach((src) => {
+      const video = document.createElement("video");
+      video.src = src;
+      video.preload = "auto";
+    });
+  }, []);
 
-  const sectionRef = useRef(null);
-
-  /* Background Slideshow  WORKING AT THE MOMENT */
+  // Cycle videos
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentBg((prev) => (prev + 1) % backgrounds.length);
-    }, 2000);
-
+      setCurrentVideo((prev) => (prev + 1) % videos.length);
+    }, 8000);
     return () => clearInterval(interval);
   }, []);
 
-  /* Scroll Reveal */
-  useEffect(() => {
-    const obs = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) setVisible(true);
-      },
-      { threshold: 0.3 }
-    );
-
-    if (sectionRef.current) obs.observe(sectionRef.current);
-  }, []);
-
-  /* Typing Effect */
-  useEffect(() => {
-    if (!visible) return;
-
-    let i = 0;
-    const speed = 18;
-
-    const type = () => {
-      if (i < fullSubtitle.length) {
-        setTypedText((prev) => prev + fullSubtitle.charAt(i));
-        i++;
-        setTimeout(type, speed);
-      }
-    };
-
-    type();
-  }, [visible]);
-
   return (
-    <section
-      ref={sectionRef}
-      className="relative w-full h-[90vh] overflow-hidden transition-all duration-[1500ms] ease-in-out"
-      style={{
-        backgroundImage: backgrounds[currentBg],
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/60 backdrop-blur-[1px]"></div>
+    <section className="relative w-full h-screen bg-black overflow-hidden">
 
-      {/* Content */}
-      <div className="relative z-10 h-full flex flex-col justify-center items-center text-center px-6">
+      {/* VIDEO LAYERS WITH BLUR FADE TRANSITION */}
+      <AnimatePresence mode="wait">
+        <motion.video
+          key={currentVideo}
+          className="absolute inset-0 w-full h-full object-cover"
+          src={videos[currentVideo]}
+          autoPlay
+          loop
+          muted
+          preload="auto"
+          initial={{ opacity: 0, filter: "blur(12px)" }}
+          animate={{ opacity: 1, filter: "blur(0px)" }}
+          exit={{ opacity: 0, filter: "blur(12px)" }}
+          transition={{ duration: 1.4, ease: "easeInOut" }}
+        />
+      </AnimatePresence>
 
-        {/* Title */}
-        <h1
-          className={`h1-3d-extrude text-white font-oswald font-bold text-4xl sm:text-5xl lg:text-6xl mb-6 
-            animate-gentleGlow transition-all duration-1000
-            ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
-          `}
+      {/* Glitch Overlay */}
+      <div className="absolute inset-0 mix-blend-overlay pointer-events-none">
+        <div className="w-full h-full animate-glitch opacity-20 bg-repeat bg-[url('/glitch.png')]" />
+      </div>
+
+      {/* CONTENT */}
+      <div className="relative z-10 flex flex-col justify-center h-full px-8 md:px-16 max-w-3xl text-white">
+        <motion.p
+          className="uppercase tracking-widest text-sm md:text-base mb-2"
+          initial={{ x: -40, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 1 }}
         >
-          CREATING IMMERSIVE EXPERIENCES
-        </h1>
+          3D Entertainment Co.
+        </motion.p>
 
-        {/*this is our subtittl below the h1 that is typed with an animation*/}
-        <p
-          className={`text-gray-200 text-lg sm:text-xl max-w-2xl min-h-[90px] mb-10 leading-relaxed 
-            transition-all duration-1000 delay-200
-            ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
-          `}
+        <motion.h1
+          className="text-4xl md:text-6xl font-extrabold leading-tight"
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 1, delay: 0.2 }}
         >
-          {typedText}
-        </p>
+          FILMS MADE TO <br />
+          <span className="text-red-600 glitch-text">PERFECTION</span>
+        </motion.h1>
 
-        {/* Buttons  get in tuch will take us to fotter , doscover more willtaker us to services section*/}
-        <div
-          className={`flex gap-4 flex-col sm:flex-row transition-all duration-1000 delay-400
-            ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
-          `}
+        <motion.p
+          className="mt-6 text-sm md:text-lg leading-relaxed opacity-90"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.4 }}
         >
-          <a
-            href="/services"
-            className="group bg-[rgb(166,0,10)] text-white py-3 px-8 rounded-md 
-              text-sm font-medium tracking-wide hover:bg-red-700 transition-all shadow-xl
-              hover:scale-[1.03] active:scale-[0.97]"
-          >
-            <span className="inline-block group-hover:translate-x-1 transition-all duration-300">
-              DISCOVER OUR WORK →
-            </span>
-          </a>
+          3D Entertainment is becoming the one and only leading custom design and
+          fabrication company in the Middle East. Created a wide variety of props
+          for film & amusement, entertainment venues, facades, murals and retail
+          businesses of all sizes.
+        </motion.p>
 
-          <a
-            href="/contact"
-            className="group border border-[rgb(166,0,10)] text-[rgb(166,0,10)] py-3 px-8 rounded-md 
-              text-sm font-medium hover:bg-[rgb(166,0,10)] hover:text-white transition-all shadow-xl
-              hover:scale-[1.03] active:scale-[0.97]"
-          >
-            <span className="inline-block group-hover:translate-x-1 transition-all duration-300">
-              GET IN TOUCH →
-            </span>
-          </a>
-        </div>
-
+        <motion.button
+          className="mt-8 bg-red-600 hover:bg-red-700 transition text-white font-semibold px-6 py-3  w-fit"
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+        >
+          DISCOVER MORE
+        </motion.button>
       </div>
     </section>
   );

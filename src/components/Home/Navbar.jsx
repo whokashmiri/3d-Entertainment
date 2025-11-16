@@ -21,7 +21,7 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="w-full shadow-md sticky top-0 z-50 bg-white">
+    <header className="w-full shadow-md top-0 z-50 bg-white">
       {/* 🔝 Top Info Bar (hidden on small screens) */}
       <div className="hidden lg:flex bg-white text-gray-700 text-sm justify-between items-center px-8 py-2 border-b">
         <div className="flex items-center gap-8 ml-16 mt-2">
