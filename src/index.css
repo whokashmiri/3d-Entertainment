@@ -7,3 +7,13 @@
 a ,ul, span {
   font-family: 'Oswald' , sans-serif;
 }
+
+/*3D Extruded Text to our h1 in hero */
+.h1-3d-extrude {
+  text-shadow:
+    2px 2px 0 #A6000A,        
+    4px 4px 0 rgba(0,0,0,0.4); 
+}
+
+
+
