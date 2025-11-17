@@ -6,6 +6,7 @@ import AboutHero from './components/AboutUs/Abouthero.jsx'
 import AboutMain from './components/AboutUs/AboutMain.jsx'
 import Cinema from './components/Offers/Cinema.jsx'
 import OffersMain from './components/Offers/OffersMain.jsx'
+import ProductionMain from './components/Production/ProductionMain.jsx'
 // import { HublotPage } from './components/HublotPage'
 // import GraffPage from './components/GraffPage'
 // import ChopardPage from './components/ChopardPage'
@@ -35,6 +36,7 @@ function App() {
       <Route path='*' element={<Home/>}/>
       <Route path="/about" element={<AboutMain/>} />
       <Route path="/cinema-and-film-industry" element={<OffersMain />} />
+      <Route path="/props-production" element={<ProductionMain />} />
 
 
       {/* <Route path="/home" element={<Home />} />

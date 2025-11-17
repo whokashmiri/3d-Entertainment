@@ -4,7 +4,7 @@ import bgimage from "../../assets/imageten.png";
 import { motion } from "framer-motion";
 
 
-const Cinema = () => {
+const ProductionHero = () => {
   const heroStyle = {
     backgroundImage: `url(${bgimage})`,
     backgroundSize: "cover",
@@ -74,7 +74,7 @@ const Cinema = () => {
     viewport={{ once: false, amount: 0.4 }}
     className="relative text-8xl font-bold drop-shadow-lg"
   >
-    CINEMA & TV PRODUCTION
+PROPS PRODUCTION
   </motion.h1>
 </section>
 
@@ -85,14 +85,14 @@ const Cinema = () => {
           </p>
           {/* <p className="mt-2 text-2xl font-medium">WHO WE ARE</p> */}
           <h1 className="mt-5 text-7xl uppercase md:text-4xl font-bold tracking-wider pb-5">
-            Shaping the Future of Cinema in the Middle EasT
+            Turning Ideas Into Tangible Reality With 3D Precision
           </h1>
           <p className="mt-2 leading-relaxed text-gray-500">
-            The cinema and film industry in the Middle East has been experiencing rapid growth, and companies like 3D Entertainment are positioning themselves at the forefront of this transformation. With the region’s youthful population, rising disposable incomes, and government investment in cultural infrastructure, the demand for immersive cinematic experiences has surged. Audiences are increasingly drawn to 3D films and advanced formats that deliver virtual reality–like sensations, making 3D Entertainment’s specialization in cutting-edge technology highly relevant
+            At 3DProduction, we transform imagination into reality with high-quality 3D modeling, printing, and prop fabrication. Whether you need custom prototypes, detailed props, architectural models, or specialized parts, our team delivers precision, speed, and premium craftsmanship. We bring every project to life with industry-grade tools and a passion for innovation.
             <br />
-            The cinema and film industry in the Middle East is experiencing unprecedented growth, driven by a young, dynamic audience and strong investment in cultural infrastructure. With new theaters opening across the region and a rising demand for premium experiences, the industry has become a hub for innovation, creativity, and global collaboration. This transformation is not only reshaping entertainment but also positioning the Middle East as a vibrant player in the worldwide film market.
+            Your ideas deserve more than sketches—they deserve to exist. 3DProduction specializes in creating stunning physical and digital products through advanced 3D technologies. From creative props and artistic designs to functional components and commercial prototypes, we ensure every detail is crafted with accuracy and style. We help creators, businesses, and innovators turn concepts into tangible masterpieces. <br />
 
-At the heart of this evolution, 3D Entertainment stands out as a pioneer in delivering immersive cinematic experiences. By combining cutting-edge 3D technology with visionary storytelling, the company brings audiences closer to the magic of film than ever before. 3D Entertainment’s commitment to quality, innovation, and accessibility ensures that every screening is more than just a movie — it’s an unforgettable journey. With a focus on regional growth and global standards, the company continues to redefine what cinema means for audiences across the Middle East.
+Props Production by 3DProduction delivers cinema-quality props, replicas, and custom designs with extreme attention to detail. Using cutting-edge 3D printing and modeling technologies, we craft durable, high-precision pieces for film, events, businesses, and personal collections. If you dream it, we can shape it — flawlessly..
           </p>
       
         </div>
@@ -127,4 +127,4 @@ At the heart of this evolution, 3D Entertainment stands out as a pioneer in deli
   );
 };
 
-export default Cinema
+export default ProductionHero

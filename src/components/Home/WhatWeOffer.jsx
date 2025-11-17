@@ -24,6 +24,27 @@ const services = [
     href: "/trade-show",
     image: "https://images.pexels.com/photos/10981974/pexels-photo-10981974.jpeg",
   },
+   {
+    title: "Retail Displays",
+    description:
+      "Eye-catching retail displays boost sales, engage customers, and enhance the shopping experience.",
+    href: "/retail-displays",
+    image: "https://images.pexels.com/photos/5531541/pexels-photo-5531541.jpeg",
+  },
+  {
+    title: "Kiosk",
+    description:
+      "Compact, self-service station for quick transactions, information, or services, often seen in public spaces",
+    href: "/kiosk",
+    image: "https://images.pexels.com/photos/3943950/pexels-photo-3943950.jpeg",
+  },
+  {
+    title: "Theme Parks",
+    description:
+      "Immersive worlds, thrilling rides, enchanting characters, and endless fun – theme park design creates unforgettable experiences for all ages.",
+    href: "/trade-show",
+    image: "https://images.pexels.com/photos/2316786/pexels-photo-2316786.jpeg",
+  },
 ];
 
 export default function WhatWeOffer() {
