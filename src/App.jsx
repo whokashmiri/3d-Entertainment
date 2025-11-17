@@ -2,6 +2,8 @@
 import { Routes, Route} from 'react-router-dom'
 import Home from './components/Home'
 import AboutUs from './components/AboutUs/AboutUs.jsx'
+import AboutHero from './components/AboutUs/Abouthero.jsx'
+import AboutMain from './components/AboutUs/AboutMain.jsx'
 // import { HublotPage } from './components/HublotPage'
 // import GraffPage from './components/GraffPage'
 // import ChopardPage from './components/ChopardPage'
@@ -29,7 +31,7 @@ function App() {
    <Routes>
      <Route path='/' element={<Home/>}/>
       <Route path='*' element={<Home/>}/>
-      <Route path="/about" element={<AboutUs/>} />
+      <Route path="/about" element={<AboutMain/>} />
 
 
       {/* <Route path="/home" element={<Home />} />

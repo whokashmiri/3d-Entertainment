@@ -1,3 +1,4 @@
+
 import { useEffect } from "react";
 
 import AOS from 'aos';
@@ -23,7 +24,11 @@ useEffect(() => {
     "https://images.pexels.com/photos/3917729/pexels-photo-3917729.jpeg",
   ];
 
+
+
+
   return (
+
     <section className="w-full py-20 border border-gray-300 mx-auto max-w-6xl px-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
 
@@ -91,3 +96,6 @@ useEffect(() => {
     </section>
   );
 }
+
+
+
