@@ -4,6 +4,8 @@ import Home from './components/Home'
 import AboutUs from './components/AboutUs/AboutUs.jsx'
 import AboutHero from './components/AboutUs/Abouthero.jsx'
 import AboutMain from './components/AboutUs/AboutMain.jsx'
+import Cinema from './components/Offers/Cinema.jsx'
+import OffersMain from './components/Offers/OffersMain.jsx'
 // import { HublotPage } from './components/HublotPage'
 // import GraffPage from './components/GraffPage'
 // import ChopardPage from './components/ChopardPage'
@@ -32,10 +34,11 @@ function App() {
      <Route path='/' element={<Home/>}/>
       <Route path='*' element={<Home/>}/>
       <Route path="/about" element={<AboutMain/>} />
+      <Route path="/cinema-and-film-industry" element={<OffersMain />} />
 
 
       {/* <Route path="/home" element={<Home />} />
-      <Route path="/hublot" element={<HublotPage />} />
+      <Route path="/cinema-and-film-industry" element={<HublotPage />} />
       <Route path="/graff" element={<GraffPage />} />
       <Route path="/chopard" element={<ChopardPage/>} />
        <Route path="/item/:id" element={<ItemDetails />} />

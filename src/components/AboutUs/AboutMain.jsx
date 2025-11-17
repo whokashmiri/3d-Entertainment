@@ -1,11 +1,11 @@
 import React from 'react'
 import Navbar from '../Home/Navbar'
-import AboutHero from './Abouthero'
+import AboutHero from './AboutHero'
 
 const AboutMain = () => {
   return (
     <>
-    <Navbar />
+    {/* <Navbar /> */}
     <AboutHero/>
     </>
   )
