@@ -1,7 +1,6 @@
 import React from 'react'
 import Navbar from '../Home/Navbar'
-import AboutHero from './AboutHero'
-
+import AboutHero from './Abouthero'
 const AboutMain = () => {
   return (
     <>
