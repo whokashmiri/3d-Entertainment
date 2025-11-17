@@ -9,7 +9,7 @@ export default function FooterCard() {
                   AOS.init();
                 }, [])
     let date = new Date();
-    let currentyear = date.getFullYear();
+    let currentYear = date.getFullYear();
   return (
     <section className="relative bg-[#f5f5f7] py-14 md:py-24 overflow-hidden">
      
@@ -144,7 +144,7 @@ export default function FooterCard() {
 
           {/* Bottom row */}
           <div className="mt-6 flex flex-col gap-4 text-xs text-gray-500 sm:flex-row sm:items-center sm:justify-between">
-            <p>© {currentyear} 3D Entertainment. All rights reserved.</p>
+            <p>© {currentYear} 3D Entertainment. All rights reserved.</p>
 
             <div className="flex flex-wrap gap-x-6 gap-y-2">
               <a href="#" className="hover:text-gray-700 underline">

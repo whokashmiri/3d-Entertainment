@@ -12,7 +12,7 @@ useEffect(() => {
   const topImages = [
     "https://images.pexels.com/photos/30396798/pexels-photo-30396798.jpeg",
     "https://images.pexels.com/photos/5870407/pexels-photo-5870407.jpeg",
-    "https://images.pexels.com/photos/22604954/pexels-photo-22604954.jpeg",
+    "https://images.pexels.com/photos/22669860/pexels-photo-22669860.jpeg",
     "https://images.pexels.com/photos/6982474/pexels-photo-6982474.jpeg",
   ];
 

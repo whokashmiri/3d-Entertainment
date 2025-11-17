@@ -140,7 +140,7 @@ const HomeHero = () => {
         playsInline
       >
         {/* Replace with your own video sources */}
-        <source src="https://www.pexels.com/download/video/4488715/" type="video/mp4" />
+        <source src="https://www.pexels.com/download/video/8089234/" type="video/mp4" />
       </video>
 
       {/* Red / black overlay that fades on scroll */}
