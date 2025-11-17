@@ -8,28 +8,28 @@ const services = [
     description:
       "Creativity, storytelling, technology merge to entertain, provoke, and reflect culture in the cinematic world.",
     href: "/cinema-and-film-industry",
-    image: "https://showtheworks.com/cinema/wp-content/uploads/2023/09/Untitled-design-2023-09-15T130139.844.png",
+    image: "https://images.pexels.com/photos/7991175/pexels-photo-7991175.jpeg",
   },
   {
     title: "Props Production",
     description:
       "Crafting custom props for film, theater, events, and advertising, blending creativity, precision, and storytelling expertise.",
     href: "/props-production",
-    image: "https://showtheworks.com/cinema/wp-content/uploads/2023/09/Untitled-design-2023-09-15T130324.632.png",
+    image: "https://images.pexels.com/photos/8088386/pexels-photo-8088386.jpeg",
   },
   {
     title: "Trade Show",
     description:
       "Exhibition of industry innovations, networking, and business opportunities, showcasing products, services, and fostering industry connections.",
     href: "/trade-show",
-    image: "https://showtheworks.com/cinema/wp-content/uploads/2023/09/Untitled-design-2023-09-15T130440.785.png",
+    image: "https://images.pexels.com/photos/10981974/pexels-photo-10981974.jpeg",
   },
    {
     title: "Retail Displays",
     description:
       "Eye-catching retail displays boost sales, engage customers, and enhance the shopping experience.",
     href: "/retail-displays",
-    image: "https://showtheworks.com/cinema/wp-content/uploads/2023/09/Untitled-design-2023-09-15T130634.248.png",
+    image: "https://images.pexels.com/photos/5531541/pexels-photo-5531541.jpeg",
   },
   {
     title: "Kiosk",
@@ -43,7 +43,7 @@ const services = [
     description:
       "Immersive worlds, thrilling rides, enchanting characters, and endless fun – theme park design creates unforgettable experiences for all ages.",
     href: "/trade-show",
-    image: "https://showtheworks.com/cinema/wp-content/uploads/2023/09/Untitled-design-2023-09-15T134919.647.png",
+    image: "https://images.pexels.com/photos/2316786/pexels-photo-2316786.jpeg",
   },
 ];
 
