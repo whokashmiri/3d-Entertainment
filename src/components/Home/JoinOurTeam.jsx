@@ -18,7 +18,7 @@ export default function JoinOurTeam() {
             Passionate, skilled, and ready to make an impact? Join us to innovate, collaborate, and thrive in a dynamic team dedicated to excellence.
           </p>
 
-          <button className="inline-flex items-center gap-3 rounded-md bg-[#A6000A] px-6 py-3 text-sm font-semibold text-white shadow-md transform duration-300 hover:bg-gray-700" data-aos="fade-right" data-aos-duration="1000">
+          <button className="inline-flex items-center gap-3 bg-[#A6000A] px-6 py-3 text-sm font-semibold text-white shadow-md transform duration-300 hover:bg-gray-700" data-aos="fade-right" data-aos-duration="1000">
             <span>FIND A OPEN POSITION</span>
            
           </button>
