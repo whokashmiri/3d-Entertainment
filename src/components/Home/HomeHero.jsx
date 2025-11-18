@@ -155,7 +155,7 @@ const HomeHero = () => {
       />
 
       {/* Top nav */}
-      <header className="absolute inset-x-0 top-0 z-20">
+      <header className="absolute inset-x-0 top-0 ">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-3 py-3">
           {/* Left: logo mark + wordmark */}
           <div className="flex items-center gap-3">

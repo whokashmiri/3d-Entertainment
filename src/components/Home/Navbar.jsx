@@ -1,156 +1,117 @@
-import { useState } from "react";
-import logo3d from "../../assets/react.webp";
-import {
-  FaFacebookF,
-  FaTwitter,
-  FaLinkedinIn,
-  FaYoutube,
-  FaMapMarkerAlt,
-  FaPhoneAlt,
-  FaEnvelope,
-} from "react-icons/fa";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import logo from "../../assets/react.webp";
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [active, setActive] = useState("Home");
+  const [open, setOpen] = useState(false);
 
-  const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "About Us", href: "/about" },
-    { name: "Services", href: "/services" },
-    { name: "Contact Us", href: "/contact" },
+  const menuItems = [
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "Services", path: "/services" },
+    { name: "Contact Us", path: "/contact" },
   ];
 
   return (
-    <header className="w-full shadow-md top-0 z-50 bg-white">
-      {/* 🔝 Top Info Bar (hidden on small screens) */}
-      <div className="hidden lg:flex bg-white text-gray-700 text-sm justify-between items-center px-8 py-2 border-b">
-        <div className="flex items-center gap-8 ml-16 mt-2">
-          {/* Location */}
-          <div className="flex items-center gap-2 ">
-            <FaMapMarkerAlt className="text-[rgb(166,0,10)]" />
-            <span>Jeddah, Saudi Arabia</span>
-          </div>
+    <nav className="w-screen px-6 py-4 bg-gray-900 text-white flex justify-between items-center">
 
-          {/* Phone Numbers */}
-          <div className="flex items-center gap-2">
-            <FaPhoneAlt className="text-[rgb(166,0,10)]" />
-            <a
-              href="tel:+966122614100"
-              className=""
-            >
-              +966 122 614 100
-            </a>
-            <span>,</span>
-            <a
-              href="tel:+966505622994"
-              className=""
-            >
-              +966 505 622 994
-            </a>
-          </div>
+      {/* Logo */}
+      <Link to="/" className="text-lg font-bold">
+        <img src={logo} alt="" />
+      </Link>
 
-          {/* Email */}
-          <div className="flex items-center gap-2">
-            <FaEnvelope className="text-[rgb(166,0,10)]" />
-            <a
-              href="mailto:hummam@3dentertainmentksa.com"
-              className=""
+      {/* Desktop Menu */}
+      <div className="hidden md:flex items-center">
+        <div className="relative bg-black/40 backdrop-blur-md px-2 py-1 rounded-full flex gap-2">
+          {menuItems.map((item) => (
+            <Link
+              key={item.name}
+              to={item.path}
+              onClick={() => setActive(item.name)}
+              className="relative z-10 px-4 py-2 rounded-full font-medium"
             >
-              hummam@3dentertainmentksa.com
-            </a>
-          </div>
+              {active === item.name && (
+                <motion.div
+                  layoutId="highlight"
+                  className="absolute inset-0 bg-gray-800 rounded-full"
+                  transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                />
+              )}
+              <span className="relative z-10">{item.name}</span>
+            </Link>
+          ))}
         </div>
       </div>
 
-      {/* 🧭 Main Navbar */}
-      <nav className="flex flex-wrap items-center justify-between px-8 py-3">
-        {/* Logo */}
-        <a href="/home" className="flex items-center ml-16">
-          <img src={logo3d} alt="Company Logo" className="h-12 sm:h-14" />
-        </a>
+      {/* Get Yours Button */}
+      <Link
+        to="/get"
+        className="hidden md:block bg-white text-black font-semibold px-5 py-2 rounded-full"
+      >
+        Get Yours
+      </Link>
 
-        {/* Desktop Menu */}
-        <ul className="hidden md:flex gap-8 font-medium text-sm text-gray-800">
-          {navLinks.map((link) => (
-            <li key={link.name} className="relative group cursor-pointer">
-              <a
-                href={link.href}
-                className=" font-oswald transition-colors duration-300"
-              >
-                {link.name}
-              </a>
-              <span className="absolute left-0 bottom-[-4px] w-0 h-[2px] bg-black group-hover:w-full transition-all duration-300"></span>
-            </li>
-          ))}
-        </ul>
+      {/* Mobile Hamburger */}
+      <button
+        className="md:hidden flex flex-col gap-1 relative w-8 h-8"
+        onClick={() => setOpen(!open)}
+      >
+        <motion.span
+          animate={open ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
+          className="w-8 h-[3px] bg-white block rounded"
+        ></motion.span>
 
-        {/* Social Icons (Right side for large screens only) */}
-        <div className="hidden lg:flex flex-col items-start mr-16 text-black">
-          <span className="font-semibold mb-1">Follow Us :</span>
-          <div className="flex gap-2">
-            {[
-              { Icon: FaFacebookF, href: "https://facebook.com" },
-              { Icon: FaTwitter, href: "https://twitter.com" },
-              { Icon: FaLinkedinIn, href: "https://linkedin.com" },
-              { Icon: FaYoutube, href: "https://youtube.com" },
-            ].map(({ Icon, href }, i) => (
-              <a
-                key={i}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="border-[1.5px] border-[rgb(166,0,10)] p-2  hover:bg-blue-300 hover:text-white transition-all duration-300 hover:scale-110"
-              >
-                <Icon />
-              </a>
-            ))}
-          </div>
-        </div>
+        <motion.span
+          animate={open ? { opacity: 0 } : { opacity: 1 }}
+          className="w-8 h-[3px] bg-white block rounded"
+        ></motion.span>
 
-        {/* Burger Menu for Small Screens */}
-        <div className="flex items-center gap-3 md:hidden">
-          <button
-            className="flex flex-col justify-center items-center gap-1.5 p-2 focus:outline-none"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle Menu"
-          >
-            <span
-              className={`block w-6 h-[2px] bg-black transition-transform duration-300 ${
-                isOpen ? "rotate-45 translate-y-[6px]" : ""
-              }`}
-            ></span>
-            <span
-              className={`block w-6 h-[2px] bg-black transition-opacity duration-300 ${
-                isOpen ? "opacity-0" : "opacity-100"
-              }`}
-            ></span>
-            <span
-              className={`block w-6 h-[2px] bg-black transition-transform duration-300 ${
-                isOpen ? "-rotate-45 -translate-y-[6px]" : ""
-              }`}
-            ></span>
-          </button>
-        </div>
-      </nav>
+        <motion.span
+          animate={open ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
+          className="w-8 h-[3px] bg-white block rounded"
+        ></motion.span>
+      </button>
 
-      {/* 📱 Mobile Dropdown Menu */}
-      {isOpen && (
-        <div className="md:hidden bg-white border-t text-center font-medium text-gray-700 animate-slideDown">
-          <ul className="flex flex-col py-4 space-y-3">
-            {navLinks.map((link) => (
-              <li key={link.name}>
-                <a
-                  href={link.href}
-                  className="block py-2 hover:text-red-600 transition-colors"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.name}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-    </header>
+      {/* Mobile Menu Drawer */}
+     {open && (
+  <motion.div
+    initial={{ opacity: 0, y: -10 }}
+    animate={{ opacity: 1, y: 0 }}
+    className="absolute left-0 top-[70px] w-full bg-gray-900 p-6 flex flex-col gap-3 md:hidden z-50"
+  >
+    {menuItems.map((item) => (
+      <Link
+        key={item.name}
+        to={item.path}
+        onClick={() => {
+          setActive(item.name);
+          setOpen(false);
+        }}
+        className="relative px-4 py-3 rounded-xl text-left text-lg font-semibold z-10"
+      >
+        {active === item.name && (
+          <motion.div
+            layoutId="highlight"
+            className="absolute inset-0 bg-gray-800 rounded-xl z-0 pointer-events-none"
+            transition={{ type: "spring", stiffness: 300, damping: 25 }}
+          />
+        )}
+        <span className="relative z-10">{item.name}</span>
+      </Link>
+    ))}
+
+    <Link
+      to="/get"
+      onClick={() => setOpen(false)}
+      className="bg-white text-black font-semibold px-5 py-3 rounded-full mt-2 z-10"
+    >
+      Get Yours
+    </Link>
+  </motion.div>
+)}
+
+    </nav>
   );
 }
