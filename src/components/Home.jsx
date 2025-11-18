@@ -5,6 +5,7 @@ import React from 'react'
 import WhatWeOffer from "./Home/WhatWeOffer"
 import TestimonialCarousel from "./Home/TestimonialCarousel"
 import TeamSection from "./Home/TeamSection"
+import JoinOurTeam from "./Home/JoinOurTeam"
 // import AboutUs from "./AboutUs/AboutUs"
 
 const Home = () => {
@@ -16,6 +17,7 @@ const Home = () => {
     <WhatWeOffer/>
     <TestimonialCarousel/>
     <TeamSection/>
+    <JoinOurTeam/>
 
     
     </>

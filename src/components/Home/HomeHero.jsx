@@ -191,14 +191,14 @@ const HomeHero = () => {
             <div className="space-y-2 text-xs uppercase tracking-[0.25em] text-neutral-400">
               <div className="flex items-center gap-2">
                 {/* Fake logo row */}
-                <div className="flex items-center gap-[6px] text-[9px]">
-                  <span className="rounded-sm bg-white/10 px2 py-[2px] px-[6px]">
+                <div className="flex items-center gap-1.5 text-[9px]">
+                  <span className="rounded-sm bg-white/10 px2 py-0.5 px-1.5">
                     LOGO
                   </span>
-                  <span className="rounded-sm bg-white/10 px2 py-[2px] px-[6px]">
+                  <span className="rounded-sm bg-white/10 px2 py-0.5 px-1.5">
                     IPSUM
                   </span>
-                  <span className="rounded-sm bg-white/10 px2 py-[2px] px-[6px]">
+                  <span className="rounded-sm bg-white/10 px2 py-0.5 px-1.5">
                     LOGO
                   </span>
                 </div>
