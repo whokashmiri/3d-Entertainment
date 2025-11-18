@@ -6,7 +6,8 @@ import WhatWeOffer from "./Home/WhatWeOffer"
 import TestimonialCarousel from "./Home/TestimonialCarousel"
 import TeamSection from "./Home/TeamSection"
 import JoinOurTeam from "./Home/JoinOurTeam"
-// import AboutUs from "./AboutUs/AboutUs"
+import AwardsCarousel from "./Offers/AwardsCarousel"
+import LatestNews from "./Home/LatestNews"
 
 const Home = () => {
   return (
@@ -18,6 +19,8 @@ const Home = () => {
     <TestimonialCarousel/>
     <TeamSection/>
     <JoinOurTeam/>
+    <AwardsCarousel/>
+    <LatestNews/>
 
     
     </>
