@@ -1,6 +1,10 @@
+// WhatWeOfferScroll.jsx
+import { useLayoutEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-// WhatWeOffer.jsx
+gsap.registerPlugin(ScrollTrigger);
 
 const services = [
   {
@@ -24,7 +28,7 @@ const services = [
     href: "/trade-show",
     image: "https://images.pexels.com/photos/10981974/pexels-photo-10981974.jpeg",
   },
-   {
+  {
     title: "Retail Displays",
     description:
       "Eye-catching retail displays boost sales, engage customers, and enhance the shopping experience.",
@@ -34,7 +38,7 @@ const services = [
   {
     title: "Kiosk",
     description:
-      "Compact, self-service station for quick transactions, information, or services, often seen in public spaces",
+      "Compact, self-service station for quick transactions, information, or services, often seen in public spaces.",
     href: "/kiosk",
     image: "https://images.pexels.com/photos/3943950/pexels-photo-3943950.jpeg",
   },
@@ -42,76 +46,117 @@ const services = [
     title: "Theme Parks",
     description:
       "Immersive worlds, thrilling rides, enchanting characters, and endless fun – theme park design creates unforgettable experiences for all ages.",
-    href: "/trade-show",
+    href: "/theme-parks",
     image: "https://images.pexels.com/photos/2316786/pexels-photo-2316786.jpeg",
   },
 ];
 
-export default function WhatWeOffer() {
-  return (
-    <section className="bg-white py-16 md:py-24">
-      <div className="mx-auto max-w-6xl px-4">
+export default function WhatWeOfferScroll() {
+  const containerRef = useRef(null);
 
-        {/* SECTION HEADER */}
-        <div className="text-center mb-12 md:mb-16">
-          <p className="text-xs font-semibold uppercase tracking-[0.35em] text-gray-500">
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      const panels = gsap.utils.toArray(".service-panel");
+
+      // Pin each panel so they stack as you scroll (Apple-style)
+      panels.forEach((panel) => {
+        ScrollTrigger.create({
+          trigger: panel,
+          start: "top top",
+          pin: true,
+          pinSpacing: false, // next panel comes over the previous
+        });
+
+        const content = panel.querySelector(".service-content");
+
+        if (content) {
+          // Animate text/content in each panel
+          gsap.fromTo(
+            content,
+            { y: 60, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: panel,
+                start: "center center",
+                end: "bottom top",
+                scrub: true,
+              },
+            }
+          );
+        }
+      });
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <section ref={containerRef} className="bg-black text-white">
+      {/* SECTION HEADER (normal, non-pinned) */}
+      <div className="mx-auto max-w-6xl px-4 pt-16 pb-10 md:pt-20 md:pb-12">
+        <div className="text-center">
+          <p className="text-xs font-semibold uppercase tracking-[0.35em] text-gray-400">
             Our Services
           </p>
 
-          <h2 className="mt-3 text-3xl md:text-4xl font-extrabold tracking-wide text-gray-900">
+          <h2 className="mt-3 text-3xl md:text-4xl font-extrabold tracking-[0.18em] text-white">
             WHAT WE OFFER
           </h2>
 
-          <p className="mt-4 max-w-2xl mx-auto text-sm md:text-base text-gray-600">
+          <p className="mt-4 max-w-2xl mx-auto text-sm md:text-base text-gray-300">
             Our adept teams cover diverse creative and technical aspects,
             ensuring top-tier project execution and quality.
           </p>
         </div>
+      </div>
 
-        {/* SERVICE CARDS */}
-        <div className="grid gap-8 md:grid-cols-3">
-          {services.map((service) => (
-            <Link
-              key={service.href}
-              to={service.href}
-              className="group block h-full"
-            >
-              <div className="flex h-full flex-col overflow-hidden rounded-xl border border-gray-300 bg-white shadow-sm transition-transform duration-200 hover:-translate-y-1 hover:shadow-xl">
+      {/* FULL-VIEWPORT PANELS */}
+      <div className="relative">
+        {services.map((service) => (
+          <section
+            key={service.href}
+            className="service-panel relative h-screen"
+          >
+            <Link to={service.href} className="group block h-full w-full">
+              {/* Background image */}
+              <div className="absolute inset-0">
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="h-full w-full object-cover transition-transform duration-[1200ms] group-hover:scale-105"
+                />
+                {/* Dark gradient overlay to make text readable */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/55 to-black/20" />
+              </div>
 
-                {/* CARD IMAGE */}
-                <div className="relative w-full overflow-hidden">
-                  <div className="aspect-[4/3] w-full">
-                    <img
-                      src={service.image}
-                      className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                      alt={service.title}
-                    />
-                  </div>
-                </div>
+              {/* Text content overlay */}
+              <div className="service-content relative z-10 flex h-full items-center">
+                <div className="w-full px-10 pb-10 md:px-12 md:pb-16 lg:max-w-3xl">
+                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gray-300">
+                    {service.href.replace("/", "").replace("-", " ") ||
+                      "Service"}
+                  </p>
 
-                {/* CARD CONTENT */}
-                <div className="flex flex-1 flex-col items-center justify-between px-6 py-6 text-center">
+                  <h3 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight">
+                    {service.title}
+                  </h3>
 
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900">
-                      {service.title}
-                    </h3>
+                  <p className="mt-4 text-sm md:text-base text-gray-200">
+                    {service.description}
+                  </p>
 
-                    <p className="mt-3 text-sm text-gray-600">
-                      {service.description}
-                    </p>
-                  </div>
-
-                  <span className="mt-5 text-sm font-semibold text-gray-900">
-                    View More »
-                  </span>
-
+                  <button className="mt-6 inline-flex items-center rounded-full bg-white/95 px-6 py-2 text-sm font-semibold text-black shadow-lg shadow-black/40 transition hover:bg-white">
+                    View More
+                    <span className="ml-2 text-base">↗</span>
+                  </button>
                 </div>
               </div>
             </Link>
-          ))}
-        </div>
-
+          </section>
+        ))}
       </div>
     </section>
   );

@@ -9,10 +9,12 @@ import JoinOurTeam from "./Home/JoinOurTeam"
 import AwardsCarousel from "./Offers/AwardsCarousel"
 import LatestNews from "./Home/LatestNews"
 
+
+
 const Home = () => {
   return (
     <>
-     {/* <Navbar />  */}
+     
     <HomeHero/>
     <AboutUs/>
     <WhatWeOffer/>
