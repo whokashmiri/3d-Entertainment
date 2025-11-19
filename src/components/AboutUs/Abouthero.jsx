@@ -155,7 +155,7 @@ const AboutHero = () => {
         />
 
         {/* Dark gradient overlay for readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
+        <div className="absolute inset-0 bg-linear-to-b from-black/60 via-black/40 to-black/70" />
 
         {/* Title */}
         <h1 className="relative z-10 text-5xl md:text-7xl lg:text-8xl font-bold drop-shadow-lg tracking-[0.15em]">
@@ -164,7 +164,7 @@ const AboutHero = () => {
       </section>
 
       {/* WHO WE ARE SECTION (unchanged content) */}
-      <section className="px-2 md:px-8 py-14 w-full text-black flex flex-col items-center justify-center text-center">
+      <section className="px-2 bg-[#c8d0d4]  md:px-8 py-14 w-full text-black flex flex-col items-center justify-center text-center">
         <div className="max-w-4xl">
           <p className="text-lg text-gray-800 leading-relaxed">
             {/* our descriptive text here */}
@@ -194,19 +194,18 @@ const AboutHero = () => {
       {/* BIG IMAGE-MASKED TEXT SECTION (now GSAP parallax) */}
       <section
         ref={textSectionRef}
-        className="relative w-full min-h-screen flex items-center justify-center overflow-hidden py-20"
+        className="relative w-full bg-[#c8d0d4]  min-h-screen flex items-center justify-center overflow-hidden py-20"
       >
         {/* Soft contrast layer behind text */}
         <div className="absolute inset-0 bg-white/10 backdrop-blur-sm" />
 
-        <div className="relative z-10 flex flex-col gap-5 text-center leading-[0.8]">
+        <div className="relative  z-10 flex flex-col gap-5 text-center leading-[0.8]">
           {/* LINE 1 */}
           <h1
             ref={(el) => (textLinesRef.current[0] = el)}
             className="
               text-[24vw] md:text-[16vw] font-semibold uppercase 
               text-transparent bg-clip-text bg-cover bg-center bg-no-repeat
-              bg-[length:180%]
             "
             style={{ backgroundImage: `url(${imagetwo})` }}
           >
@@ -219,7 +218,6 @@ const AboutHero = () => {
             className="
               text-[22vw] md:text-[14vw] font-semibold uppercase 
               text-transparent bg-clip-text bg-cover bg-center bg-no-repeat
-              bg-[length:180%]
             "
             style={{ backgroundImage: `url(${imagetwo})` }}
           >
@@ -232,7 +230,6 @@ const AboutHero = () => {
             className="
               text-[28vw] md:text-[18vw] font-semibold uppercase 
               text-transparent bg-clip-text bg-cover bg-center bg-no-repeat
-              bg-[length:170%]
             "
             style={{ backgroundImage: `url(${imagetwo})` }}
           >
@@ -242,7 +239,7 @@ const AboutHero = () => {
       </section>
 
       {/* STATS / COUNTERS SECTION (now using GSAP instead of IntersectionObserver) */}
-      <section ref={statsSectionRef} className="py-20 bg-white">
+      <section ref={statsSectionRef} className="py-20 bg-[#c8d0d4] ">
         <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-14 text-center">
           {stats.map((stat, i) => (
             <div key={stat.label} className="flex flex-col items-center">

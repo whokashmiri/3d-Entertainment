@@ -11,7 +11,7 @@ export default function FooterCard() {
     let date = new Date();
     let currentYear = date.getFullYear();
   return (
-    <section className="relative bg-[#f5f5f7] py-14 md:py-24 overflow-hidden">
+    <section className="relative bg-[#c8d0d4] z-40 py-14 md:py-24 overflow-hidden">
      
 
       <div className="relative mx-auto max-w-6xl px-4">
