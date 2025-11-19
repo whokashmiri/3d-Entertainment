@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from '../Home/Navbar'
+import TeamSection from '../Home/TeamSection'
 import AboutHero from './Abouthero'
 import AboutIntroPinned from './AboutIntroPinned'
 const AboutMain = () => {
@@ -8,6 +8,7 @@ const AboutMain = () => {
     {/* <Navbar /> */}
     <AboutHero/>
     <AboutIntroPinned/>
+    <TeamSection/>
     </>
   )
 }

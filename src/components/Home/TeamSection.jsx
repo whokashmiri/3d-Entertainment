@@ -66,12 +66,12 @@ export default function TeamSection() {
   };
 
   return (
-    <section className="bg-[#f5f5f5] py-16 md:py-24">
+    <section className="bg-[#c8d0d4]  relative py-16 md:py-24">
       <div className="mx-auto max-w-6xl px-4">
         {/* Top row: heading + accordion */}
         <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
           {/* Left heading */}
-          <div className="md:w-1/2" >
+          <div className="md:w-1/2" bg-amber-400 >
             <p className="text-xs font-semibold uppercase tracking-[0.35em] text-gray-500" data-aos="fade-right" data-aos-duration="1000">
               Our Super Team
             </p>
@@ -122,12 +122,12 @@ export default function TeamSection() {
         </div>
 
       {/* Pills row (inline, no wrap, stronger hover effect) */}
-<div className="mt-16 flex flex-nowrap items-end justify-center gap-6 md:gap-8 overflow-x-auto pb-4">
+<div className="mt-10 flex flex-nowrap relative items-end justify-center gap-6 md:gap-8 overflow-x-auto pb-4">
   {teamPills.map((member) => (
     <div
       key={member.name}
       className={
-        "group relative shrink-0 overflow-hidden shadow-md rounded-full transition-transform duration-300 ease-out hover:-translate-y-2 hover:scale-[1.08] h-[260px] w-32 sm:h-[300px] sm:w-40 md:h-[340px] md:w-48 lg:h-[380px] lg:w-56"
+        "group relative mt-7 shrink-0 overflow-hidden shadow-md rounded-full transition-transform duration-300 ease-out hover:-translate-y-2 hover:scale-[1.08] h-[260px] w-32 sm:h-[300px] sm:w-40 md:h-[340px] md:w-48 lg:h-[380px] lg:w-50"
       }
       style={{
         backgroundColor: member.bg,
