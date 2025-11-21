@@ -87,7 +87,7 @@ export default function TestimonialCarousel() {
       >
         {/* ⚠️ Use a direct .mp4 URL here */}
         <source
-          src="https://www.pexels.com/download/video/3248275/"
+          src="https://www.pexels.com/download/video/857134/"
           type="video/mp4"
         />
       </video>
