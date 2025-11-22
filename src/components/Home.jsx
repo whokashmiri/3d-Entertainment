@@ -8,6 +8,7 @@ import TeamSection from "./Home/TeamSection"
 import JoinOurTeam from "./Home/JoinOurTeam"
 import AwardsCarousel from "./Offers/AwardsCarousel"
 import LatestNews from "./Home/LatestNews"
+import ContactUs from "./Home/ContactUs"
 
 
 
@@ -23,6 +24,7 @@ const Home = () => {
     <JoinOurTeam/>
     <AwardsCarousel/>
     <LatestNews/>
+    <ContactUs/>
 
     
     </>
