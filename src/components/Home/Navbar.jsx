@@ -48,9 +48,9 @@ export default function Navbar() {
       {/* Get Yours Button */}
       <Link
         to="/get"
-        className="hidden md:block bg-gray-600 text-white font-semibold px-5 py-2 rounded-full"
+        className="hidden md:block bg-[#A6000A] text-white font-semibold px-5 py-2 rounded-full"
       >
-        Get Yours
+        Get In Touch
       </Link>
 
       {/* Mobile Hamburger */}
@@ -105,9 +105,9 @@ export default function Navbar() {
     <Link
       to="/get"
       onClick={() => setOpen(false)}
-      className="bg-white text-black font-semibold px-5 py-3 rounded-full mt-2 z-10"
+      className="bg-[#A6000A] text-black font-semibold px-5 py-3 rounded-full mt-2 z-10"
     >
-      Get Yours
+      Get In Touch
     </Link>
   </motion.div>
 )}

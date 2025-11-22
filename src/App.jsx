@@ -8,6 +8,7 @@ import Cinema from './components/Offers/Cinema.jsx'
 import OffersMain from './components/Offers/OffersMain.jsx'
 import ProductionMain from './components/Production/ProductionMain.jsx'
 import ServiceMain from './components/Service/ServiceMain.jsx'
+import GetInTouch from './components/Home/GetInTouch.jsx'
 // import { HublotPage } from './components/HublotPage'
 // import GraffPage from './components/GraffPage'
 // import ChopardPage from './components/ChopardPage'
@@ -41,6 +42,8 @@ function App() {
 
 
       <Route path="/services" element={<ServiceMain />} />
+s
+      <Route path="/get" element={<GetInTouch />} />
 
 
 
